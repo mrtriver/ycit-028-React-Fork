@@ -6,6 +6,7 @@ function App() {
   );
 }
 
+// You cannot mutate props
 function HelloWorld(props) {
   props.firstName = "Thomas"; // don't do this
 
