@@ -2,6 +2,10 @@ import { useState } from "react"
 
 import "./App.css"
 
+import { myVariable } from "./myOtherFiles.jsx"
+
+console.log("thumbelina", myVariable)
+
 export function App() {
     const [status, setStatus] = useState("hired") // <--- "hired" is the initial value
 
@@ -17,7 +21,7 @@ function UserProfile(props) {
     // This is the exact same thing as the lines above (known as object destructuring)
     const { status, setStatus } = props
 
-    return (
+    const myReactElement = (
         <div className="profile">
             <div className="profile-avatar">
                 <img src="/vite.svg" className="logo" alt="Vite logo" />
@@ -48,4 +52,8 @@ function UserProfile(props) {
             </div>
         </div>
     )
+
+    console.log("myReactElement", myReactElement)
+
+    return myReactElement
 }
