@@ -12,10 +12,20 @@
     </head>
     <body>
         <div id="root"></div>
-        <script src="./example-1.js" type="text/babel"></script>
+        <script src="./example-2.js" type="text/babel"></script>
         <script type="text/babel">
             const root = ReactDOM.createRoot(document.getElementById("root"))
             root.render(<ExampleApp />)
         </script>
+        <style>
+            .person {
+                display: flex;
+                border: 1px solid black;
+                padding: 10px;
+                margin: 10px;
+
+                gap: 10px;
+            }
+        </style>
     </body>
 </html>
