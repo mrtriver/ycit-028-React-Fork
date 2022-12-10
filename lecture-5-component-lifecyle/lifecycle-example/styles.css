@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.app {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+}
+
+.app > div:first-child {
+    flex: 0 0 5rem;
+
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.app > div:nth-child(2) {
+    flex: 1 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
