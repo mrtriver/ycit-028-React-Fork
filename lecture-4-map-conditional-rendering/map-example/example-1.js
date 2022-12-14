@@ -13,14 +13,18 @@ function ExampleApp() {
                 {people.map((elem) => {
                     // console.log("inside-map-cb", elem)
 
-                    return (
-                        <div key={elem.id} className="person">
-                            <span>{elem.name}</span>
-                            <span>{elem.job}</span>
-                        </div>
-                    )
+                    return <Person name={elem.name} job={elem.job} />
                 })}
             </ul>
+        </div>
+    )
+}
+
+function Person(props) {
+    return (
+        <div className="person">
+            <span>{props.name}</span>
+            <span>{props.job}</span>
         </div>
     )
 }
