@@ -10,6 +10,8 @@ function App() {
 function Person(props) {
     // Now, I can throw in a console.log(props) and see what props are being passed to the component
 
+    console.log("person props", props)
+
     const { name, age } = props // If you want to do object destructuring, do it here
 
     return (
