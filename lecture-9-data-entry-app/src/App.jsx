@@ -19,11 +19,20 @@ function App() {
     const [referralIdValue, setReferralIdValue] = useState("")
 
     function handleSubmitClicked() {
+        // console.log("data", {
+        //     medicareValue: medicareValue,
+        //     visitDateValue: visitDateValue,
+        //     visitTypeValue: visitTypeValue,
+        // })
+
+        // This is the same as the code above (shorthand syntax for objects)
         console.log("data", {
             medicareValue,
             visitDateValue,
             visitTypeValue,
         })
+
+        // console.log("js date", visitDateValue.toDate())
     }
 
     const doctorsFeeLabel = `Doctor's fee: $${getDoctorsFee(visitTypeValue)}`
