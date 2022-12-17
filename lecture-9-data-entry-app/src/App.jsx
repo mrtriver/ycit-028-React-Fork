@@ -11,28 +11,32 @@ import FormControl from "@mui/material/FormControl"
 import FormLabel from "@mui/material/FormLabel"
 import Button from "@mui/material/Button"
 import Stack from "@mui/material/Stack"
+import Alert from "@mui/material/Alert"
+import { getFormErrorText } from "./App.helpers.js"
 
 function App() {
+    const [alert, setAlert] = useState({ severity: null, text: "" }) // prettier-ignore
+
     const [medicareValue, setMedicareValue] = useState("")
     const [visitDateValue, setVisitDateValue] = useState(dayjs("2014-08-18T21:11:54")) // prettier-ignore
     const [visitTypeValue, setVisitTypeValue] = useState("principle-visit")
     const [referralIdValue, setReferralIdValue] = useState("")
 
     function handleSubmitClicked() {
-        // console.log("data", {
-        //     medicareValue: medicareValue,
-        //     visitDateValue: visitDateValue,
-        //     visitTypeValue: visitTypeValue,
-        // })
-
-        // This is the same as the code above (shorthand syntax for objects)
-        console.log("data", {
+        const params = {
             medicareValue,
             visitDateValue,
             visitTypeValue,
-        })
+            referralIdValue,
+        }
 
-        // console.log("js date", visitDateValue.toDate())
+        const errorText = getFormErrorText(params)
+
+        if (errorText) {
+            setAlert({ severity: "warning", text: errorText })
+        } else {
+            setAlert({ severity: "success", text: "Claim saved." })
+        }
     }
 
     const doctorsFeeLabel = `Doctor's fee: $${getDoctorsFee(visitTypeValue)}`
@@ -135,6 +139,9 @@ function App() {
                         Success
                     </Button>
                 </Box>
+                {alert.text && (
+                    <Alert severity={alert.severity}>{alert.text}</Alert>
+                )}
             </Stack>
         </LocalizationProvider>
     )
